@@ -12,211 +12,154 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
+    font-family:Arial, sans-serif;
 }
 
 body{
-    background:#000;
+    background: radial-gradient(circle,#2b0018,#000);
     color:white;
     overflow-x:hidden;
-}
-
-#inicio{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
-}
-
-#inicio h1{
-    font-size:4rem;
-    color:#ff1744;
-    text-shadow:0 0 20px #ff1744;
-    margin-bottom:20px;
-}
-
-.botao{
-    padding:15px 35px;
-    font-size:20px;
-    border:none;
-    border-radius:40px;
-    background:#ff1744;
-    color:white;
-    cursor:pointer;
-    box-shadow:0 0 20px #ff1744;
+    min-height:100vh;
 }
 
 .hidden{
     display:none;
 }
 
+#inicio{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.botao{
+    padding:20px 40px;
+    border:none;
+    border-radius:50px;
+    font-size:24px;
+    cursor:pointer;
+    background:#ff4d6d;
+    color:white;
+    box-shadow:0 0 30px #ff4d6d;
+}
+
 #conteudo{
-    padding:40px 20px;
     text-align:center;
+    padding:30px;
+}
+
+h1{
+    margin-top:20px;
+    font-size:3em;
+    color:#ff7aa2;
+}
+
+.data{
+    margin-top:10px;
+    font-size:1.2em;
+    color:#ffc0cb;
 }
 
 .foto{
     width:300px;
     height:300px;
     object-fit:cover;
-    border-radius:25px;
-    border:4px solid #ff1744;
-
-    box-shadow:
-    0 0 20px #ff1744,
-    0 0 40px #ff1744,
-    0 0 80px #ff1744;
-
-    animation:flutuar 4s infinite ease-in-out;
-}
-
-@keyframes flutuar{
-    50%{
-        transform:translateY(-10px);
-    }
-}
-
-.titulo{
-    font-size:4rem;
+    border-radius:20px;
+    border:4px solid #ff4d6d;
+    box-shadow:0 0 30px #ff4d6d;
     margin-top:20px;
-    color:#ff1744;
-
-    text-shadow:
-    0 0 10px #ff1744,
-    0 0 30px #ff1744,
-    0 0 60px #ff1744;
-}
-
-#texto{
-    font-size:1.3rem;
-    max-width:700px;
-    margin:30px auto;
-    line-height:1.7;
-    min-height:120px;
-}
-
-#contador{
-    margin-top:20px;
-    font-size:1.5rem;
 }
 
 .carta{
-    max-width:800px;
-    margin:60px auto;
-    padding:30px;
-
-    background:rgba(255,255,255,0.05);
-
-    border:1px solid #ff1744;
-
+    max-width:700px;
+    margin:30px auto;
+    padding:25px;
+    background:rgba(255,255,255,0.08);
     border-radius:20px;
-
-    box-shadow:0 0 20px #ff1744;
+    backdrop-filter:blur(10px);
+    line-height:1.8;
+    font-size:1.2em;
 }
 
-.carta h2{
-    color:#ff1744;
-    margin-bottom:20px;
+.assinatura{
+    margin-top:20px;
+    color:#ff7aa2;
+    font-size:1.5em;
 }
+
+/* CORAÇÕES */
 
 .heart{
     position:fixed;
-    color:#ff1744;
+    bottom:-20px;
+    color:#ff4d6d;
+    animation:subir 8s linear forwards;
     pointer-events:none;
-    animation:subir linear forwards;
+    z-index:999;
 }
 
 @keyframes subir{
 
-    from{
-        transform:translateY(100vh);
+    0%{
+        transform:translateY(0) rotate(0deg);
         opacity:1;
     }
 
-    to{
-        transform:translateY(-100px);
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
         opacity:0;
     }
-}
 
-audio{
-    margin-top:20px;
 }
 
 </style>
 </head>
-
 <body>
 
 <div id="inicio">
-
-    <h1>❤️ Para Lê ❤️</h1>
-
-    <p style="margin-bottom:20px">
-        Preparei uma surpresa para você...
-    </p>
-
     <button class="botao" onclick="abrir()">
         Abrir ❤️
     </button>
-
 </div>
 
 <div id="conteudo" class="hidden">
 
-    <img id="foto" class="foto" src="foto1.jpg">
+    <h1>Para Lê ❤️</h1>
 
-    <h1 class="titulo">
-        EU TE AMO ❤️
-    </h1>
+    <div class="data">
+        Desde 05/07/2025
+    </div>
 
-    <div id="texto"></div>
-
-    <div id="contador"></div>
+    <img
+        id="foto"
+        class="foto"
+        src="foto1.jpg"
+    >
 
     <div class="carta">
-
-        <h2>💌 Para Lê</h2>
-
-        <p>
 
         Você é a única coisa que me faz querer sair da cama todo dia.
 
         <br><br>
 
-        Desde que você entrou na minha vida,
-        os meus dias ficaram mais leves,
-        mais felizes e mais bonitos.
+        Seu sorriso ilumina meus dias,
+        sua presença transforma tudo ao meu redor
+        e cada momento ao seu lado se torna especial.
 
         <br><br>
 
-        Obrigado por cada conversa.
-        <br>
-        Obrigado por cada ligação.
-        <br>
-        Obrigado por cada momento compartilhado.
+        Obrigado por existir,
+        por me fazer feliz
+        e por tornar minha vida melhor.
 
         <br><br>
 
-        Mesmo quando estamos longe,
-        você continua sendo meu lugar favorito.
+        Te amo ❤️
 
-        <br><br>
-
-        ❤️ Te amo, Lê ❤️
-
-        </p>
-
-        <br><br>
-
-        <h2>🎵 Nossa Música</h2>
-
-        <audio controls>
-            <source src="musica.mp3" type="audio/mpeg">
-        </audio>
+        <div class="assinatura">
+            Com amor ❤️
+        </div>
 
     </div>
 
@@ -230,134 +173,72 @@ audio{
 
 function abrir(){
 
-    document.getElementById("inicio")
-    .classList.add("hidden");
+    document
+        .getElementById("inicio")
+        .classList
+        .add("hidden");
 
-    document.getElementById("conteudo")
-    .classList.remove("hidden");
+    document
+        .getElementById("conteudo")
+        .classList
+        .remove("hidden");
 
     const musica =
-    document.getElementById("musica");
+        document.getElementById("musica");
 
-    musica.volume = 0.5;
-
-    musica.play();
-
-    digitar();
-}
-
-const frases = [
-
-"Desde que você entrou na minha vida, tudo ficou mais bonito.",
-
-"Mesmo quando estamos longe, você continua sendo meu lugar favorito.",
-
-"Cada ligação, cada conversa e cada sorriso seu fazem meu dia melhor.",
-
-"Você é a única coisa que me faz querer sair da cama todo dia."
-
-];
-
-let fraseAtual = 0;
-
-function digitar(){
-
-    let texto = frases[fraseAtual];
-
-    let i = 0;
-
-    document.getElementById("texto").innerHTML = "";
-
-    let intervalo = setInterval(()=>{
-
-        document.getElementById("texto")
-        .innerHTML += texto.charAt(i);
-
-        i++;
-
-        if(i >= texto.length){
-
-            clearInterval(intervalo);
-
-            setTimeout(()=>{
-
-                fraseAtual++;
-
-                if(fraseAtual >= frases.length){
-                    fraseAtual = 0;
-                }
-
-                digitar();
-
-            },3000);
-
-        }
-
-    },60);
+    musica.play().catch(() => {});
 
 }
 
-let fotoAtual = true;
+/* TROCA DE FOTOS */
+
+let fotoAtual = false;
 
 setInterval(()=>{
 
     const foto =
-    document.getElementById("foto");
-
-    foto.src =
-    fotoAtual ? "foto2.jpg" : "foto1.jpg";
+        document.getElementById("foto");
 
     fotoAtual = !fotoAtual;
 
-},5000);
+    foto.src =
+        fotoAtual
+        ? "foto2.jpg"
+        : "foto1.jpg";
 
-const inicio =
-new Date("2025-07-05T00:00:00");
+},4000);
 
-function atualizarContador(){
-
-    const agora = new Date();
-
-    const diff = agora - inicio;
-
-    const dias =
-    Math.floor(diff/(1000*60*60*24));
-
-    document.getElementById("contador")
-    .innerHTML =
-    "❤️ Eu te amo há <strong>" +
-    dias +
-    " dias</strong>";
-
-}
-
-setInterval(atualizarContador,1000);
-
-atualizarContador();
+/* CORAÇÕES */
 
 function criarCoracao(){
 
-    const heart =
-    document.createElement("div");
+    const coracao =
+        document.createElement("div");
 
-    heart.className = "heart";
+    coracao.classList.add("heart");
 
-    heart.innerHTML = "❤️";
+    const emojis =
+    ["❤️","💕","💖","💘","💝"];
 
-    heart.style.left =
-    Math.random()*100+"vw";
+    coracao.innerHTML =
+        emojis[
+            Math.floor(
+                Math.random()*emojis.length
+            )
+        ];
 
-    heart.style.fontSize =
-    (Math.random()*20+15)+"px";
+    coracao.style.left =
+        Math.random()*100 + "vw";
 
-    heart.style.animationDuration =
-    (Math.random()*4+4)+"s";
+    coracao.style.fontSize =
+        (15 + Math.random()*30) + "px";
 
-    document.body.appendChild(heart);
+    document.body.appendChild(coracao);
 
     setTimeout(()=>{
-        heart.remove();
+        coracao.remove();
     },8000);
+
 }
 
 setInterval(criarCoracao,300);
