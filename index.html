@@ -26,6 +26,8 @@ body{
     display:none;
 }
 
+/* TELA INICIAL */
+
 #inicio{
     height:100vh;
     display:flex;
@@ -42,7 +44,14 @@ body{
     background:#ff4d6d;
     color:white;
     box-shadow:0 0 30px #ff4d6d;
+    transition:0.3s;
 }
+
+.botao:hover{
+    transform:scale(1.05);
+}
+
+/* CONTEÚDO */
 
 #conteudo{
     text-align:center;
@@ -53,12 +62,14 @@ h1{
     margin-top:20px;
     font-size:3em;
     color:#ff7aa2;
+    text-shadow:0 0 15px #ff4d6d;
 }
 
 .data{
     margin-top:10px;
+    margin-bottom:20px;
     font-size:1.2em;
-    color:#ffc0cb;
+    color:white;
 }
 
 .foto{
@@ -68,7 +79,6 @@ h1{
     border-radius:20px;
     border:4px solid #ff4d6d;
     box-shadow:0 0 30px #ff4d6d;
-    margin-top:20px;
 }
 
 .carta{
@@ -80,6 +90,7 @@ h1{
     backdrop-filter:blur(10px);
     line-height:1.8;
     font-size:1.2em;
+    color:white;
 }
 
 .assinatura{
@@ -93,7 +104,6 @@ h1{
 .heart{
     position:fixed;
     bottom:-20px;
-    color:#ff4d6d;
     animation:subir 8s linear forwards;
     pointer-events:none;
     z-index:999;
@@ -115,13 +125,20 @@ h1{
 
 </style>
 </head>
+
 <body>
 
+<!-- TELA DE ABERTURA -->
+
 <div id="inicio">
+
     <button class="botao" onclick="abrir()">
         Abrir ❤️
     </button>
+
 </div>
+
+<!-- CONTEÚDO PRINCIPAL -->
 
 <div id="conteudo" class="hidden">
 
@@ -135,7 +152,7 @@ h1{
         id="foto"
         class="foto"
         src="foto1.jpg"
-    >
+        alt="Nossa Foto">
 
     <div class="carta">
 
@@ -143,19 +160,24 @@ h1{
 
         <br><br>
 
+        Desde que você entrou na minha vida,
+        tudo ficou mais bonito.
+
+        <br><br>
+
         Seu sorriso ilumina meus dias,
-        sua presença transforma tudo ao meu redor
+        sua presença me traz paz
         e cada momento ao seu lado se torna especial.
 
         <br><br>
 
         Obrigado por existir,
         por me fazer feliz
-        e por tornar minha vida melhor.
+        e por ser exatamente quem você é.
 
         <br><br>
 
-        Te amo ❤️
+        Eu te amo ❤️
 
         <div class="assinatura">
             Com amor ❤️
@@ -165,11 +187,15 @@ h1{
 
 </div>
 
+<!-- MÚSICA -->
+
 <audio id="musica" loop>
     <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
 <script>
+
+/* ABRIR SITE */
 
 function abrir(){
 
@@ -186,7 +212,11 @@ function abrir(){
     const musica =
         document.getElementById("musica");
 
-    musica.play().catch(() => {});
+    musica.volume = 0.6;
+
+    musica.play().catch(error=>{
+        console.log(error);
+    });
 
 }
 
@@ -208,7 +238,7 @@ setInterval(()=>{
 
 },4000);
 
-/* CORAÇÕES */
+/* CORAÇÕES FLUTUANDO */
 
 function criarCoracao(){
 
@@ -231,7 +261,7 @@ function criarCoracao(){
         Math.random()*100 + "vw";
 
     coracao.style.fontSize =
-        (15 + Math.random()*30) + "px";
+        (15 + Math.random()*35) + "px";
 
     document.body.appendChild(coracao);
 
