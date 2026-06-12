@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para Lê ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#000;
+    color:white;
+    overflow-x:hidden;
+}
+
+#inicio{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+#inicio h1{
+    font-size:4rem;
+    color:#ff1744;
+    text-shadow:0 0 20px #ff1744;
+    margin-bottom:20px;
+}
+
+.botao{
+    padding:15px 35px;
+    font-size:20px;
+    border:none;
+    border-radius:40px;
+    background:#ff1744;
+    color:white;
+    cursor:pointer;
+    box-shadow:0 0 20px #ff1744;
+}
+
+.hidden{
+    display:none;
+}
+
+#conteudo{
+    padding:40px 20px;
+    text-align:center;
+}
+
+.foto{
+    width:300px;
+    height:300px;
+    object-fit:cover;
+    border-radius:25px;
+    border:4px solid #ff1744;
+
+    box-shadow:
+    0 0 20px #ff1744,
+    0 0 40px #ff1744,
+    0 0 80px #ff1744;
+
+    animation:flutuar 4s infinite ease-in-out;
+}
+
+@keyframes flutuar{
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+.titulo{
+    font-size:4rem;
+    margin-top:20px;
+    color:#ff1744;
+
+    text-shadow:
+    0 0 10px #ff1744,
+    0 0 30px #ff1744,
+    0 0 60px #ff1744;
+}
+
+#texto{
+    font-size:1.3rem;
+    max-width:700px;
+    margin:30px auto;
+    line-height:1.7;
+    min-height:120px;
+}
+
+#contador{
+    margin-top:20px;
+    font-size:1.5rem;
+}
+
+.carta{
+    max-width:800px;
+    margin:60px auto;
+    padding:30px;
+
+    background:rgba(255,255,255,0.05);
+
+    border:1px solid #ff1744;
+
+    border-radius:20px;
+
+    box-shadow:0 0 20px #ff1744;
+}
+
+.carta h2{
+    color:#ff1744;
+    margin-bottom:20px;
+}
+
+.heart{
+    position:fixed;
+    color:#ff1744;
+    pointer-events:none;
+    animation:subir linear forwards;
+}
+
+@keyframes subir{
+
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+
+audio{
+    margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="inicio">
+
+    <h1>❤️ Para Lê ❤️</h1>
+
+    <p style="margin-bottom:20px">
+        Preparei uma surpresa para você...
+    </p>
+
+    <button class="botao" onclick="abrir()">
+        Abrir ❤️
+    </button>
+
+</div>
+
+<div id="conteudo" class="hidden">
+
+    <img id="foto" class="foto" src="foto1.jpg">
+
+    <h1 class="titulo">
+        EU TE AMO ❤️
+    </h1>
+
+    <div id="texto"></div>
+
+    <div id="contador"></div>
+
+    <div class="carta">
+
+        <h2>💌 Para Lê</h2>
+
+        <p>
+
+        Você é a única coisa que me faz querer sair da cama todo dia.
+
+        <br><br>
+
+        Desde que você entrou na minha vida,
+        os meus dias ficaram mais leves,
+        mais felizes e mais bonitos.
+
+        <br><br>
+
+        Obrigado por cada conversa.
+        <br>
+        Obrigado por cada ligação.
+        <br>
+        Obrigado por cada momento compartilhado.
+
+        <br><br>
+
+        Mesmo quando estamos longe,
+        você continua sendo meu lugar favorito.
+
+        <br><br>
+
+        ❤️ Te amo, Lê ❤️
+
+        </p>
+
+        <br><br>
+
+        <h2>🎵 Nossa Música</h2>
+
+        <audio controls>
+            <source src="musica.mp3" type="audio/mpeg">
+        </audio>
+
+    </div>
+
+</div>
+
+<audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+function abrir(){
+
+    document.getElementById("inicio")
+    .classList.add("hidden");
+
+    document.getElementById("conteudo")
+    .classList.remove("hidden");
+
+    const musica =
+    document.getElementById("musica");
+
+    musica.volume = 0.5;
+
+    musica.play();
+
+    digitar();
+}
+
+const frases = [
+
+"Desde que você entrou na minha vida, tudo ficou mais bonito.",
+
+"Mesmo quando estamos longe, você continua sendo meu lugar favorito.",
+
+"Cada ligação, cada conversa e cada sorriso seu fazem meu dia melhor.",
+
+"Você é a única coisa que me faz querer sair da cama todo dia."
+
+];
+
+let fraseAtual = 0;
+
+function digitar(){
+
+    let texto = frases[fraseAtual];
+
+    let i = 0;
+
+    document.getElementById("texto").innerHTML = "";
+
+    let intervalo = setInterval(()=>{
+
+        document.getElementById("texto")
+        .innerHTML += texto.charAt(i);
+
+        i++;
+
+        if(i >= texto.length){
+
+            clearInterval(intervalo);
+
+            setTimeout(()=>{
+
+                fraseAtual++;
+
+                if(fraseAtual >= frases.length){
+                    fraseAtual = 0;
+                }
+
+                digitar();
+
+            },3000);
+
+        }
+
+    },60);
+
+}
+
+let fotoAtual = true;
+
+setInterval(()=>{
+
+    const foto =
+    document.getElementById("foto");
+
+    foto.src =
+    fotoAtual ? "foto2.jpg" : "foto1.jpg";
+
+    fotoAtual = !fotoAtual;
+
+},5000);
+
+const inicio =
+new Date("2025-07-05T00:00:00");
+
+function atualizarContador(){
+
+    const agora = new Date();
+
+    const diff = agora - inicio;
+
+    const dias =
+    Math.floor(diff/(1000*60*60*24));
+
+    document.getElementById("contador")
+    .innerHTML =
+    "❤️ Eu te amo há <strong>" +
+    dias +
+    " dias</strong>";
+
+}
+
+setInterval(atualizarContador,1000);
+
+atualizarContador();
+
+function criarCoracao(){
+
+    const heart =
+    document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML = "❤️";
+
+    heart.style.left =
+    Math.random()*100+"vw";
+
+    heart.style.fontSize =
+    (Math.random()*20+15)+"px";
+
+    heart.style.animationDuration =
+    (Math.random()*4+4)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },8000);
+}
+
+setInterval(criarCoracao,300);
+
+</script>
+
+</body>
+</html>
