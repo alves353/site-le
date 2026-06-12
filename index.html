@@ -124,20 +124,52 @@ body{
 
 .heart{
     position:fixed;
+    bottom:-50px;
     color:#ff1744;
     pointer-events:none;
+    z-index:9999;
+    filter:drop-shadow(0 0 10px #ff1744);
     animation:subir linear forwards;
 }
 
 @keyframes subir{
 
-    from{
-        transform:translateY(100vh);
+    0%{
+        transform:
+            translateY(0)
+            translateX(0)
+            rotate(0deg);
+
         opacity:1;
     }
 
-    to{
-        transform:translateY(-100px);
+    25%{
+        transform:
+            translateY(-25vh)
+            translateX(-30px)
+            rotate(90deg);
+    }
+
+    50%{
+        transform:
+            translateY(-50vh)
+            translateX(30px)
+            rotate(180deg);
+    }
+
+    75%{
+        transform:
+            translateY(-75vh)
+            translateX(-30px)
+            rotate(270deg);
+    }
+
+    100%{
+        transform:
+            translateY(-120vh)
+            translateX(30px)
+            rotate(360deg);
+
         opacity:0;
     }
 }
@@ -340,28 +372,40 @@ function criarCoracao(){
     const heart =
     document.createElement("div");
 
+    const emojis = [
+        "❤️",
+        "💕",
+        "💖",
+        "💘",
+        "💝",
+        "💞"
+    ];
+
     heart.className = "heart";
 
-    heart.innerHTML = "❤️";
+    heart.innerHTML =
+        emojis[
+            Math.floor(
+                Math.random()*emojis.length
+            )
+        ];
 
     heart.style.left =
-    Math.random()*100+"vw";
+        Math.random()*100 + "vw";
 
     heart.style.fontSize =
-    (Math.random()*20+15)+"px";
+        (Math.random()*30 + 15) + "px";
 
     heart.style.animationDuration =
-    (Math.random()*4+4)+"s";
+        (Math.random()*5 + 4) + "s";
 
     document.body.appendChild(heart);
 
     setTimeout(()=>{
         heart.remove();
-    },8000);
+    },9000);
 }
-
-setInterval(criarCoracao,300);
-
+setInterval(criarCoracao,120);
 </script>
 
 </body>
